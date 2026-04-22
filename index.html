@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive, data-driven exploration of clean technology — covering solar, wind, storage, EVs, hydrogen and carbon removal." />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Clean Technology — An Interactive Briefing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2334d399'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3Cpath d='M20 38c4-10 20-14 24-22-2 14-10 24-24 22z' fill='%230b1020'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="bg-aurora" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <header class="site-header">
+    <a href="#top" class="brand" aria-label="Clean Technology">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#34d399"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+          <circle cx="16" cy="16" r="14" fill="url(#brandGrad)"/>
+          <path d="M9 20c3-8 14-10 17-16-1 11-7 18-17 16z" fill="#0b1020"/>
+        </svg>
+      </span>
+      <span class="brand-text">Clean<span class="accent">Tech</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#overview">Overview</a>
+      <a href="#tech">Technologies</a>
+      <a href="#costs">Cost Curves</a>
+      <a href="#capacity">Capacity</a>
+      <a href="#scenario">Scenarios</a>
+      <a href="#leaders">Leaders</a>
+    </nav>
+    <a class="cta-link" href="#scenario">Try the Simulator →</a>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Interactive Briefing · Updated 2026</p>
+        <h1 class="hero-title">
+          The <span class="grad">Clean Technology</span><br/>
+          decade has begun.
+        </h1>
+        <p class="hero-sub">
+          Solar electricity is now the cheapest power humanity has ever produced.
+          Battery storage costs have collapsed 90% in a decade. Electric vehicles
+          are the fastest-scaling industrial product since the smartphone. Explore
+          the data shaping the energy transition.
+        </p>
+
+        <div class="stat-grid" role="list">
+          <article class="stat-card" role="listitem">
+            <div class="stat-value" data-counter="700" data-suffix="+ GW">0</div>
+            <div class="stat-label">Solar &amp; wind capacity added globally in 2025</div>
+          </article>
+          <article class="stat-card" role="listitem">
+            <div class="stat-value" data-counter="90" data-suffix="%">0</div>
+            <div class="stat-label">Drop in lithium-ion battery prices since 2014</div>
+          </article>
+          <article class="stat-card" role="listitem">
+            <div class="stat-value" data-counter="20" data-suffix="M EVs">0</div>
+            <div class="stat-label">Electric vehicles sold in 2025</div>
+          </article>
+          <article class="stat-card" role="listitem">
+            <div class="stat-value" data-counter="2" data-suffix="T USD">0</div>
+            <div class="stat-label">Annual global clean-energy investment</div>
+          </article>
+        </div>
+
+        <a class="scroll-cue" href="#overview" aria-label="Scroll to overview">
+          <span></span>
+        </a>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 600 600" class="hero-svg">
+          <defs>
+            <radialGradient id="sunGrad" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#fde68a"/>
+              <stop offset="0.6" stop-color="#fbbf24"/>
+              <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="bladeGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#a7f3d0"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+          <circle cx="450" cy="160" r="90" fill="url(#sunGrad)"/>
+          <circle cx="450" cy="160" r="48" fill="#fde68a"/>
+
+          <!-- Wind turbine -->
+          <g transform="translate(180 360)">
+            <rect x="-6" y="0" width="12" height="220" fill="#cbd5e1"/>
+            <g class="turbine-blades">
+              <g transform="rotate(0)">
+                <path d="M0 0 L10 -120 L-10 -120 Z" fill="url(#bladeGrad)"/>
+              </g>
+              <g transform="rotate(120)">
+                <path d="M0 0 L10 -120 L-10 -120 Z" fill="url(#bladeGrad)"/>
+              </g>
+              <g transform="rotate(240)">
+                <path d="M0 0 L10 -120 L-10 -120 Z" fill="url(#bladeGrad)"/>
+              </g>
+            </g>
+            <circle r="10" fill="#0b1020" stroke="#cbd5e1" stroke-width="3"/>
+          </g>
+
+          <!-- Solar panels -->
+          <g transform="translate(360 430) rotate(-12)">
+            <g>
+              <rect width="200" height="120" rx="6" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+              <g stroke="#06b6d4" stroke-width="0.6" opacity="0.7">
+                <line x1="0" y1="40" x2="200" y2="40"/>
+                <line x1="0" y1="80" x2="200" y2="80"/>
+                <line x1="50" y1="0" x2="50" y2="120"/>
+                <line x1="100" y1="0" x2="100" y2="120"/>
+                <line x1="150" y1="0" x2="150" y2="120"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- Pulse rings -->
+          <g class="pulse-rings" transform="translate(300 300)">
+            <circle r="40" fill="none" stroke="#34d399" stroke-width="1.5"/>
+            <circle r="80" fill="none" stroke="#34d399" stroke-width="1" opacity="0.7"/>
+            <circle r="140" fill="none" stroke="#34d399" stroke-width="0.8" opacity="0.45"/>
+            <circle r="220" fill="none" stroke="#34d399" stroke-width="0.6" opacity="0.25"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- OVERVIEW / TIMELINE -->
+    <section id="overview" class="section">
+      <div class="section-head">
+        <p class="eyebrow">01 — Where we are</p>
+        <h2>From niche to dominant in one generation.</h2>
+        <p class="lede">
+          Three exponential curves are reshaping the global economy:
+          <strong>renewable generation</strong>, <strong>energy storage</strong>,
+          and <strong>electrification of transport</strong>. Each follows the same
+          learning-rate dynamics that drove semiconductors — predictable cost declines
+          for every doubling of cumulative production.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-track"></div>
+        <ol class="timeline-list">
+          <li><time>2010</time><h4>Solar PV at $0.36/kWh</h4><p>10× more expensive than coal in most markets.</p></li>
+          <li><time>2015</time><h4>Paris Agreement</h4><p>196 nations pledge to limit warming to well below 2°C.</p></li>
+          <li><time>2020</time><h4>Cheapest electricity in history</h4><p>Solar PPAs sign below $0.02/kWh in MENA &amp; Chile.</p></li>
+          <li><time>2023</time><h4>EVs cross 18% of new car sales</h4><p>China and EU lead global adoption.</p></li>
+          <li><time>2025</time><h4>Renewables surpass coal</h4><p>For the first time, renewables generate more global electricity than coal.</p></li>
+          <li class="future"><time>2030</time><h4>Triple renewables target</h4><p>COP28 commitment: 11,000 GW installed renewable capacity.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TECH EXPLORER -->
+    <section id="tech" class="section">
+      <div class="section-head">
+        <p class="eyebrow">02 — The Stack</p>
+        <h2>Six technologies doing the heavy lifting.</h2>
+        <p class="lede">Click any technology to see its profile, scale, and trajectory.</p>
+      </div>
+
+      <div class="tech-explorer">
+        <div class="tech-grid" id="techGrid" role="tablist" aria-label="Clean technologies"></div>
+        <aside class="tech-detail" id="techDetail" aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <!-- COST CURVES -->
+    <section id="costs" class="section">
+      <div class="section-head">
+        <p class="eyebrow">03 — The Cost Revolution</p>
+        <h2>Learning curves are unforgiving — for fossil fuels.</h2>
+        <p class="lede">
+          Levelized Cost of Electricity (LCOE), unsubsidized, in USD per MWh.
+          Solar and wind have crossed below the cost of even existing coal plants.
+        </p>
+      </div>
+
+      <div class="card chart-card">
+        <div class="chart-toolbar">
+          <div class="legend" id="costLegend"></div>
+          <div class="toggle-group" role="group" aria-label="Chart scale">
+            <button class="toggle active" data-scale="linear">Linear</button>
+            <button class="toggle" data-scale="log">Log</button>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="costChart"></canvas>
+        </div>
+        <p class="chart-caption">Source: Lazard LCOE v17, BloombergNEF, IRENA. Unsubsidized utility-scale.</p>
+      </div>
+    </section>
+
+    <!-- CAPACITY -->
+    <section id="capacity" class="section">
+      <div class="section-head">
+        <p class="eyebrow">04 — Deployment at scale</p>
+        <h2>Global installed capacity is going vertical.</h2>
+        <p class="lede">Cumulative installed capacity by source, in gigawatts.</p>
+      </div>
+
+      <div class="card chart-card">
+        <div class="chart-wrap tall">
+          <canvas id="capacityChart"></canvas>
+        </div>
+        <p class="chart-caption">Source: IRENA Renewable Capacity Statistics; IEA World Energy Outlook.</p>
+      </div>
+    </section>
+
+    <!-- SCENARIO SIMULATOR -->
+    <section id="scenario" class="section">
+      <div class="section-head">
+        <p class="eyebrow">05 — Scenario simulator</p>
+        <h2>Build your own 2035 energy mix.</h2>
+        <p class="lede">
+          Adjust the sliders to allocate the world's 2035 electricity supply.
+          See the resulting CO₂ emissions versus a 1.5°C aligned pathway.
+        </p>
+      </div>
+
+      <div class="simulator card">
+        <div class="sliders" id="sliders"></div>
+
+        <div class="sim-results">
+          <div class="result-block">
+            <div class="result-label">Annual CO₂ from electricity</div>
+            <div class="result-value" id="co2Value">—</div>
+            <div class="result-sub" id="co2Sub">Gt CO₂ / year</div>
+          </div>
+
+          <div class="gauge-wrap">
+            <svg class="gauge" viewBox="0 0 200 120">
+              <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="#1f2937" stroke-width="14" stroke-linecap="round"/>
+              <path id="gaugeArc" d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="url(#gaugeGrad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"/>
+              <defs>
+                <linearGradient id="gaugeGrad" x1="0" x2="1">
+                  <stop offset="0" stop-color="#34d399"/>
+                  <stop offset="0.5" stop-color="#facc15"/>
+                  <stop offset="1" stop-color="#ef4444"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="gauge-label" id="gaugeLabel">Pathway alignment</div>
+          </div>
+
+          <div class="result-block">
+            <div class="result-label">vs. 1.5°C pathway (≤ 4 Gt by 2035)</div>
+            <div class="result-value" id="alignValue">—</div>
+            <div class="result-sub" id="alignSub"></div>
+          </div>
+        </div>
+
+        <p class="chart-caption">Model: emission factors per IPCC AR6 Annex III; demand assumed at 40,000 TWh (IEA NZE 2035).</p>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section id="leaders" class="section">
+      <div class="section-head">
+        <p class="eyebrow">06 — Country leaders</p>
+        <h2>Who's deploying the most clean energy?</h2>
+        <p class="lede">Annual clean energy investment, 2024 (USD billions).</p>
+      </div>
+
+      <div class="card leaderboard-card">
+        <div class="leaderboard" id="leaderboard"></div>
+        <p class="chart-caption">Source: IEA World Energy Investment 2024.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+      <div class="cta-card">
+        <div>
+          <p class="eyebrow">07 — Outlook</p>
+          <h2>The transition is no longer a question of <span class="grad">if</span>.</h2>
+          <p class="lede">
+            It's a question of speed, equity, and infrastructure. Clean technology is now
+            the default economic choice for new electricity generation in nearly every
+            country on earth — but unlocking the full system requires grids,
+            storage, transmission, and policy at unprecedented scale.
+          </p>
+        </div>
+        <ul class="cta-stats">
+          <li><strong>$4.5T</strong><span>Annual clean investment needed by 2030 for net-zero (IEA NZE)</span></li>
+          <li><strong>3×</strong><span>Renewable capacity growth required this decade</span></li>
+          <li><strong>2×</strong><span>Required improvement in energy efficiency by 2030</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Clean Technology — An Interactive Briefing</strong>
+        <p>Built with vanilla JS &amp; Chart.js. Data: IEA, IRENA, BloombergNEF, Lazard, IPCC AR6.</p>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.iea.org/" target="_blank" rel="noopener">IEA</a>
+        <a href="https://www.irena.org/" target="_blank" rel="noopener">IRENA</a>
+        <a href="https://about.bnef.com/" target="_blank" rel="noopener">BloombergNEF</a>
+        <a href="https://www.ipcc.ch/" target="_blank" rel="noopener">IPCC</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="scripts/data.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
